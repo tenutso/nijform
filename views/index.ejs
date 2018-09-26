@@ -1,8 +1,28 @@
 
 <%- include('layouts/header'); -%>
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <h1>Form List</h1>
+        <br /><br />
+        <a href="/create_form" class="btn btn-default">Create Form</a>
+        <br /><br />
+        <table class="table">
+          <thead>
+            <tr>
+              
+              <th scope="col">Title</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">Sample Form</a></td>
+              <td><a href="#">Edit</a></td>
+              <td><a href="#">Delete</a></td>
+              
+            </tr>
+          </tbody>
+        </table>
       </div>
 <%- include('layouts/footer'); -%>
     
