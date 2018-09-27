@@ -1,0 +1,49 @@
+<%- include('layouts/header'); -%>
+      <div class="starter-template">
+        <h1><%= form.title %></h1>
+        <br />
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="/forms">Forms</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><%= form.title %></li>
+          </ol>
+        </nav>
+        <br />
+        <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Add Item
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button">Short Text</button>
+          <button class="dropdown-item" type="button">Radio Button</button>
+          <button class="dropdown-item" type="button">Checkbox</button>
+          <button class="dropdown-item" type="button">Dropdown</button>
+          <button class="dropdown-item" type="button">HTML Area</button>
+        </div>
+      </div>
+        <br />
+        <% if (!form.length) { %>
+          <div class="text-center">There are currently no items in this form.</div>
+        <% } else { %>
+        <table class="table">
+          <thead>
+            <tr>
+              
+              <th scope="col">Title</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">Sample Form</a></td>
+              <td><a href="#">Edit</a></td>
+              <td><a href="#">Delete</a></td>
+              
+            </tr>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+<%- include('layouts/footer'); -%>

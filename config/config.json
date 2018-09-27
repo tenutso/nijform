@@ -11,7 +11,8 @@
       "acquire": 30000,
       "idle": 10000
     },
-    "storage": "nijform-dev.db"
+    "storage": "nijform-dev.db",
+    "operatorsAliases": "Sequelize.Op"
   },
   "test": {
     "username": null,
@@ -25,7 +26,8 @@
       "acquire": 30000,
       "idle": 10000
     },
-    "storage": "nijform-test.db"
+    "storage": "nijform-test.db",
+    "operatorsAliases": "Sequelize.Op"
   },
   "production": {
     "username": null,
@@ -39,6 +41,7 @@
       "acquire": 30000,
       "idle": 10000
     },
-    "storage": "nijform-prod.db"
+    "storage": "nijform-prod.db",
+    "operatorsAliases": "Sequelize.Op"
   }
 }

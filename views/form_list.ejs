@@ -1,0 +1,43 @@
+
+<%- include('layouts/header'); -%>
+      <div class="starter-template">
+        <h1>Form List</h1>
+        <br />
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Forms</li>
+          </ol>
+        </nav>
+        <br />
+        <a href="/forms/create_form" class="btn btn-secondary">Create Form</a>
+        <br /><br />
+        <% if (!forms.length) { %>
+          <div class="text-center">There are currently no forms.</div>
+        <% } else { %>
+        <table class="table">
+          <thead>
+            <tr>
+              
+              <th scope="col">Title</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% forms.forEach((form) =>  { %>
+            <tr>
+              <td><%= form.title %></td>
+              <td><a href="/forms/field_list/<%= form.id %>">fields</a></td>
+              <td><a href="/forms/update_form/<%= form.id %>">settings</a></td>
+              <td><a onclick="return confirm('Are you sure you want to delete this form?')" href="/forms/delete_form/<%= form.id %>">delete</a></td>
+              
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+<%- include('layouts/footer'); -%>
+    

@@ -1,24 +1,25 @@
 <%- include('layouts/header'); -%>
 <div class="starter-template">
-        <h1>Create a Form</h1>
+        <h1>Form Settings</h1>
+        <br />
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="/forms">Forms</a></li>
-            <li class="breadcrumb-item active" aria-current="page">create a form</li>
+            <li class="breadcrumb-item active" aria-current="page">Form Settings</li>
           </ol>
         </nav>
         <br />
-<form method="POST" action="/forms/create_form" >
+<form method="POST" action="/forms/update_form/<%= form.id %>" >
   <div class="form-group">
     <label for="title">Form Title</label>
-    <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter Title">
+    <input type="text" name="title" value="<%= form.title %>" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter Title">
     <small id="titleHelp" class="form-text text-muted">Enter a title for this form</small>
   </div>
   <div class="form-group">
     <select name="enabled" class="form-control">
-      <option value="1" selected>Enabled</option>
-      <option value="0">Disabled</option>
+      <option value="1" <%= form.enabled?"selected":"" %>>Enabled</option>
+      <option value="0" <%= !form.enabled?"selected":"" %>>Disabled</option>
     </select>
   </div>
   <button type="submit" class="btn btn-secondary">Save</button>

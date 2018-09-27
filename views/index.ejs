@@ -1,30 +1,15 @@
 
 <%- include('layouts/header'); -%>
       <div class="starter-template">
-        <h1>Form List</h1>
-        <br /><br />
-        <a href="/create_form" class="btn btn-default">Create Form</a>
-        <br /><br />
-        <table class="table">
-          <thead>
-            <tr>
-              
-              <th scope="col">Title</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% forms.forEach((form) =>  { %>
-            <tr>
-              <td><a href="#"><%= form.title %></a></td>
-              <td><a href="#">Edit</a></td>
-              <td><a onclick="return confirm('Are you sure you want to delete this form?')" href="/delete_form/<%= form.id %>">Delete</a></td>
-              
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
+        <h1>Welcome</h1>
+        <br />
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Home</li>
+          </ol>
+          <p>Welcome to Nijforms</p> 
+          <p></p><a href="/forms">Start Here</a></p>
+        </nav>
       </div>
 <%- include('layouts/footer'); -%>
     
