@@ -19,7 +19,7 @@
             <tr>
               <td><a href="#"><%= form.title %></a></td>
               <td><a href="#">Edit</a></td>
-              <td><a href="#">Delete</a></td>
+              <td><a onclick="return confirm('Are you sure you want to delete this form?')" href="/delete_form/<%= form.id %>">Delete</a></td>
               
             </tr>
             <% }) %>
