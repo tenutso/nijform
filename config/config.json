@@ -1,0 +1,44 @@
+{
+  "development": {
+    "username": null,
+    "password": null,
+    "database": null,
+    "host": "127.0.0.1",
+    "dialect": "sqlite",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    },
+    "storage": "nijform-dev.db"
+  },
+  "test": {
+    "username": null,
+    "password": null,
+    "database": null,
+    "host": "127.0.0.1",
+    "dialect": "sqlite",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    },
+    "storage": "nijform-test.db"
+  },
+  "production": {
+    "username": null,
+    "password": null,
+    "database": null,
+    "host": "127.0.0.1",
+    "dialect": "sqlite",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    },
+    "storage": "nijform-prod.db"
+  }
+}

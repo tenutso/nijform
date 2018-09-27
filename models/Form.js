@@ -1,14 +1,11 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../common/database').sequelize;
-
-const Form = sequelize.define('forms', {
-    title: {
-      type: Sequelize.STRING
-    },
-    enabled: {
-      type: Sequelize.BOOLEAN,
-      defaultValue:1
-    }
-  });
-
-  module.exports = { Form }
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const Form = sequelize.define('Form', {
+    title: DataTypes.STRING,
+    enabled: DataTypes.BOOLEAN
+  }, {});
+  Form.associate = function(models) {
+    // associations can be defined here
+  };
+  return Form;
+};

@@ -1,4 +1,3 @@
-
 <%- include('layouts/header'); -%>
       <div class="starter-template">
         <h1>Form List</h1>
@@ -15,16 +14,13 @@
             </tr>
           </thead>
           <tbody>
-            <% forms.forEach((form) =>  { %>
             <tr>
-              <td><a href="#"><%= form.title %></a></td>
+              <td><a href="#">Sample Form</a></td>
               <td><a href="#">Edit</a></td>
               <td><a href="#">Delete</a></td>
               
             </tr>
-            <% }) %>
           </tbody>
         </table>
       </div>
 <%- include('layouts/footer'); -%>
-    
