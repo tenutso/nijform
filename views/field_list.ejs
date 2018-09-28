@@ -6,7 +6,7 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="/forms">Forms</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><%= form.title %></li>
+            <li class="breadcrumb-item active" aria-current="page">Fields: <%= form.title %></li>
           </ol>
         </nav>
         <br />
@@ -15,11 +15,11 @@
           Add Item
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Short Text</button>
-          <button class="dropdown-item" type="button">Radio Button</button>
-          <button class="dropdown-item" type="button">Checkbox</button>
-          <button class="dropdown-item" type="button">Dropdown</button>
-          <button class="dropdown-item" type="button">HTML Area</button>
+          <a href="/fields/create_text/<%= form.id %>" class="dropdown-item">Short Text</a>
+          <a href="#" class="dropdown-item">Radio Button</a>
+          <a href="#" class="dropdown-item">Checkbox</a>
+          <a href="#" class="dropdown-item">Dropdown</a>
+          <a href="#" class="dropdown-item">HTML Area</a>
         </div>
       </div>
         <br />

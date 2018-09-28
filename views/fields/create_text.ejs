@@ -1,0 +1,28 @@
+<%- include('../layouts/header'); -%>
+<div class="starter-template">
+        <h1>Create a Form</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/forms">Forms</a></li>
+            <li class="breadcrumb-item"><a href="/forms"><%= form.title %></a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add a text field</li>
+          </ol>
+        </nav>
+        <br />
+<form method="POST" action="/forms/create_form" >
+  <div class="form-group">
+    <label for="title">Label</label>
+    <input type="text" name="label" class="form-control" id="label" aria-describedby="labelHelp" placeholder="Enter Label">
+    <small id="labelHelp" class="form-text text-muted">Enter a label for this form field</small>
+  </div>
+  <div class="form-group">
+    <select name="required" class="form-control">
+      <option value="1">Yes</option>
+      <option value="0" selected>No</option>
+    </select>
+  </div>
+  <input type="hidden" name="fieldType" value="text" />
+  <button type="submit" class="btn btn-secondary">Save</button>
+</form>
+<%- include('../layouts/footer'); -%>

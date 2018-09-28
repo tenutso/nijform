@@ -26,7 +26,7 @@ router.get('/create_form', function(req, res, next) {
 router.get('/update_form/:id', async function(req, res, next) {
 
     const form = await Form.findById(req.params.id);
-  
+    
     res.render('update_form', { form: form });
 });
 
@@ -39,7 +39,7 @@ router.post('/update_form/:id', async function(req, res, next) {
     const form = await Form.findById(id);
     console.log(req.body);
     await form.updateAttributes(req.body);
-  
+    //req.flash("success", "Form saved");
     res.redirect("/forms");
 });
 
@@ -51,7 +51,7 @@ router.post('/create_form', async function(req, res, next) {
   const form = await Form.create(req.body);
 
   //console.log(form);
-  
+  //req.flash("success", "Form saved");
   res.redirect("/forms/field_list/" + form.id);
   //res.render('create_form', { title: 'Express' });
 });
@@ -72,6 +72,15 @@ router.get('/field_list/:id', async function(req, res, next) {
     
   } catch (e) { console.log(e); }
   
+});
+
+// Fields
+
+// Text Field
+
+router.get('/create_text', function(req, res, next) {
+  
+  res.render('fields/create_text', { title: 'Express' });
 });
 
 module.exports = router;
