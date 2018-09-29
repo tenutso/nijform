@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var Form = require("../models").Form;
+var Field = require("../models").Field;
 
-/* GET home page. */
+
 router.get('/', async function(req, res, next) {
   
   try {
@@ -66,21 +67,18 @@ router.get('/delete_form/:id', async function(req, res, next) {
 router.get('/field_list/:id', async function(req, res, next) {
   
   try {
-    const form = await Form.findById(req.params['id']);
-    console.log(req.params['id']);
-    res.render('field_list', { form: form });
+    const form = await Form.findById(req.params.id);
+    const fields = await Field.findAll({
+      where: {
+        FormId: req.params.id
+      }
+    });
+    console.log(form);
+    res.render('field_list', { form: form, fields: fields });
     
   } catch (e) { console.log(e); }
   
 });
 
-// Fields
-
-// Text Field
-
-router.get('/create_text', function(req, res, next) {
-  
-  res.render('fields/create_text', { title: 'Express' });
-});
 
 module.exports = router;
