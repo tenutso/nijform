@@ -52,5 +52,50 @@ router.post('/update_text', async (req, res) => {
 
     res.redirect("/forms/field_list/" + field.FormId);
 });
+
+// Radio buttons
+
+// Create radio field
+router.get('/create_radio/:id', async function(req, res, next) {
+  
+    const form = await Form.findById(req.params.id);
+
+    res.render('fields/create_radio', { form: form });
+});
+
+// Save radio field
+router.post('/create_radio', async (req, res) => {
+    
+    const field = req.body;
+
+    await Field.create(field);
+
+    res.redirect("/forms/field_list/" + field.FormId);
+});
+
+// Update radio Field
+router.get('/update_radio/:id', async (req, res) => {
+    
+    const field = await Field.findOne({
+        where:{
+            id:req.params.id
+        }, 
+        include: [Form]
+    });
+    
+    //console.log(field);
+    res.render('fields/update_radio', { field: field });
+});
+
+
+
+router.get('/radios/:id', async function(req, res, next) {
+  
+    const field = await Field.findById(req.params.id);
+
+    res.render('fields/radios', { field: field });
+});
+
+
   
 module.exports = router;

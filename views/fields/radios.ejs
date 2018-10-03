@@ -1,0 +1,26 @@
+<%- include('../layouts/header'); -%>
+<div class="starter-template">
+        <h1>Create a Radio Field</h1>
+        <br />
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/forms">Forms</a></li>
+            <li class="breadcrumb-item"><a href="/forms/field_list/<%= field.form_id %>"><%= field.form_id %></a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add a radio field</li>
+          </ol>
+        </nav>
+        <br />
+<ol id="list">
+  <li class="list_var">
+    <input type="text" size="40" name="list_0" id="list_0">
+    <button class="list_del">Delete</button>
+  </li>
+</ol>
+<input type="button" value="Add" class="list_add">
+
+
+  <button type="submit" class="btn btn-secondary">Save</button>
+
+</form>
+<%- include('../layouts/footer'); -%>

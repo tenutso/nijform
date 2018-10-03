@@ -16,7 +16,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <a href="/fields/create_text/<%= form.id %>" class="dropdown-item">Short Text</a>
-          <a href="#" class="dropdown-item">Radio Button</a>
+          <a href="/fields/create_radio/<%= form.id %>" class="dropdown-item">Radio</a>
           <a href="#" class="dropdown-item">Checkbox</a>
           <a href="#" class="dropdown-item">Dropdown</a>
           <a href="#" class="dropdown-item">HTML Area</a>
@@ -44,6 +44,11 @@
               <td><%= field.type %></td>
               <td><%= field.required %></td>
               <td><a href="/fields/update_text/<%= field.id %>">modify</a></td>
+              <% if (field.type == "radio") { %>
+                <td><a href="/fields/radios/<%= field.id %>">options</a></td>
+              <% } else { %>
+                <td>&nbsp;</td>
+              <% } %>
               <td><a onclick="return confirm('Are you sure you want to delete this field?')" href="/fields/delete_text/<%= field.id %>">delete</a></td>
             </tr>
             <% }) %>
