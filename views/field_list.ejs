@@ -43,13 +43,13 @@
               <td><%= field.title %></td>
               <td><%= field.type %></td>
               <td><%= field.required %></td>
-              <td><a href="/fields/update_text/<%= field.id %>">modify</a></td>
+              <td><a href="/fields/<%= field.type %>/update_<%= field.type %>/<%= field.id %>">modify</a></td>
               <% if (field.type == "radio") { %>
-                <td><a href="/fields/radios/<%= field.id %>">options</a></td>
+                <td><a href="/fields/radio/radios/<%= field.id %>">options</a></td>
               <% } else { %>
                 <td>&nbsp;</td>
               <% } %>
-              <td><a onclick="return confirm('Are you sure you want to delete this field?')" href="/fields/delete_text/<%= field.id %>">delete</a></td>
+              <td><a onclick="return confirm('Are you sure you want to delete this field?')" href="/fields/delete_field/<%= field.id %>">delete</a></td>
             </tr>
             <% }) %>
           </tbody>

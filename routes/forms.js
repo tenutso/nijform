@@ -3,7 +3,7 @@ var router = express.Router();
 var Form = require("../models").Form;
 var Field = require("../models").Field;
 
-
+// List All Forms
 router.get('/', async function(req, res, next) {
   
   try {
@@ -13,39 +13,15 @@ router.get('/', async function(req, res, next) {
 
   } catch (e) { console.log(e); }
   
-  
-  
-  
 });
 
+// Create a form
 router.get('/create_form', function(req, res, next) {
   
   res.render('create_form', { title: 'Express' });
 });
 
-
-router.get('/update_form/:id', async function(req, res, next) {
-
-    const form = await Form.findById(req.params.id);
-    
-    res.render('update_form', { form: form });
-});
-
-
-router.post('/update_form/:id', async function(req, res, next) {
-
-    
-    const id = req.params.id;
-
-    const form = await Form.findById(id);
-    console.log(req.body);
-    await form.updateAttributes(req.body);
-    //req.flash("success", "Form saved");
-    res.redirect("/forms");
-});
-
-
-
+// Save a form
 router.post('/create_form', async function(req, res, next) {
   
   
@@ -56,6 +32,28 @@ router.post('/create_form', async function(req, res, next) {
   res.redirect("/forms/field_list/" + form.id);
   //res.render('create_form', { title: 'Express' });
 });
+
+// Update a form
+router.get('/update_form/:id', async function(req, res, next) {
+
+    const form = await Form.findById(req.params.id);
+    
+    res.render('update_form', { form: form });
+});
+
+// Save a form
+router.post('/update_form/:id', async function(req, res, next) {
+
+    const id = req.params.id;
+
+    const form = await Form.findById(id);
+    console.log(req.body);
+    await form.updateAttributes(req.body);
+    //req.flash("success", "Form saved");
+    res.redirect("/forms");
+});
+
+
 
 router.get('/delete_form/:id', async function(req, res, next) {
   
@@ -73,11 +71,17 @@ router.get('/field_list/:id', async function(req, res, next) {
         FormId: req.params.id
       }
     });
-    console.log(form);
+    
     res.render('field_list', { form: form, fields: fields });
     
   } catch (e) { console.log(e); }
   
+});
+
+router.get('/delete_field/:id', async function(req, res, next) {
+  
+  await Field.destroy({ where: {id: req.params.id}});
+  res.redirect("/forms/field_list/");
 });
 
 

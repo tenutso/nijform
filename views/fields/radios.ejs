@@ -1,26 +1,71 @@
 <%- include('../layouts/header'); -%>
 <div class="starter-template">
-        <h1>Create a Radio Field</h1>
-        <br />
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/forms">Forms</a></li>
-            <li class="breadcrumb-item"><a href="/forms/field_list/<%= field.form_id %>"><%= field.form_id %></a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add a radio field</li>
-          </ol>
-        </nav>
-        <br />
-<ol id="list">
-  <li class="list_var">
-    <input type="text" size="40" name="list_0" id="list_0">
-    <button class="list_del">Delete</button>
-  </li>
-</ol>
-<input type="button" value="Add" class="list_add">
+  <h1>Create a Radio Field</h1>
+  <br />
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/forms">Forms</a></li>
+      <li class="breadcrumb-item"><a href="/forms/field_list/<%= field.Form.id %>">
+          <%= field.Form.title %></a>
+      <li class="breadcrumb-item"><a href="/fields/radio/update_radio/<%= field.id %>">
+          <%= field.title %></a>
+      <li class="breadcrumb-item active" aria-current="page">Add radio options</li>
+    </ol>
+  </nav>
+  <br />
 
 
-  <button type="submit" class="btn btn-secondary">Save</button>
+  <form method="POST" action="/fields/radio/update_radio_options/<%= field.id %>">
 
-</form>
-<%- include('../layouts/footer'); -%>
+    <button type="submit" class="btn btn-secondary">Save</button>
+    <br /><br />
+    <table id="list" class="table small">
+      <thead>
+        <tr>
+          <th>Sort</th>
+          <th>Name</th>
+          <th>Value</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% var i; if (field.options) { %>
+
+        <% for (i = 0; i < field.options.length; i++) { %>
+        <tr class="list_var">
+          <td><input type="text" name="sort_<%= i %>" value="<%= field.options[i]['sort'] %>" size="4"></td>
+          <td><input type="text" name="list-name_<%= i %>" value="<%= field.options[i]['name'] %>"></td>
+          <td><input type="text" name="list-value_<%= i %>" value="<%= field.options[i]['value'] %>"></td>
+          <td class="del-area"><button type="button" class="list_del btn btn-primary">Delete</button></td>
+        </tr>
+
+        <% } %>
+
+        <% } else { %>
+        
+        <tr class="list_var">
+          <td><input type="text" name="sort_0" size="4"></td>
+          <td><input type="text" name="list-name_0"></td>
+          <td><input type="text" name="list-value_0"></td>
+          <td class="del-area"><button type="button" class="list_del btn btn-primary">Delete</button></td>
+        </tr>
+
+        <% } %>
+
+
+      </tbody>
+    </table>
+    <input type="button" value="Add" class="list_add btn btn-primary"><br>
+
+  </form>
+
+  <%- include('../layouts/footer'); -%>
+
+  <script src="/javascripts/jquery.add-input-area.min.js"></script>
+  <script>
+    $('#list').addInputArea({
+      area_del: '.del-area'
+    });
+  </script>
