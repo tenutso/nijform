@@ -15,8 +15,8 @@
           Add Item
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <a href="/fields/create_text/<%= form.id %>" class="dropdown-item">Short Text</a>
-          <a href="/fields/create_radio/<%= form.id %>" class="dropdown-item">Radio</a>
+          <a href="/fields/text/create_text/<%= form.id %>" class="dropdown-item">Short Text</a>
+          <a href="/fields/radio/create_radio/<%= form.id %>" class="dropdown-item">Radio</a>
           <a href="#" class="dropdown-item">Checkbox</a>
           <a href="#" class="dropdown-item">Dropdown</a>
           <a href="#" class="dropdown-item">HTML Area</a>
@@ -37,9 +37,9 @@
               <th scope="col"></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="sortable">
             <% fields.forEach((field) =>  { %>
-            <tr>
+            <tr id="sort_<%= field.id %>">
               <td><%= field.title %></td>
               <td><%= field.type %></td>
               <td><%= field.required %></td>
@@ -49,7 +49,7 @@
               <% } else { %>
                 <td>&nbsp;</td>
               <% } %>
-              <td><a onclick="return confirm('Are you sure you want to delete this field?')" href="/fields/delete_field/<%= field.id %>">delete</a></td>
+              <td><a onclick="return confirm('Are you sure you want to delete this field?')" href="/forms/delete_field/<%= field.id %>">delete</a></td>
             </tr>
             <% }) %>
           </tbody>
@@ -57,3 +57,16 @@
         <% } %>
       </div>
 <%- include('layouts/footer'); -%>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  $("#sortable").sortable({
+    cursor: "move",
+    update: function (event, ui) {
+      var Ids = $("#sortable").sortable("serialize");
+      $.post("/forms/update_sorting", Ids);
+    }
+  });
+});
+</script>

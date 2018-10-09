@@ -5,3 +5,19 @@ body {
   padding: 3rem 1.5rem;
   /*text-align: center;*/
 }
+.entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+
+.glyphicon
+{
+    font-size: 12px;
+}
+
+.glyphicons-plus-sign 
+{
+  background: url('images/icons/plus-sign.png');
+  width: 16px;
+  height: 16px;
+}

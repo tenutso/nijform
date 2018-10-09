@@ -15,7 +15,6 @@ router.get('/create_text/:id', async function (req, res, next) {
 router.post('/create_text', async (req, res) => {
 
     const field = req.body;
-
     await Field.create(field);
 
     res.redirect("/forms/field_list/" + field.FormId);

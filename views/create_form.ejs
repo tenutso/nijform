@@ -12,9 +12,14 @@
 <form method="POST" action="/forms/create_form" >
   <div class="form-group">
     <label for="title">Form Title</label>
-    <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter Title">
+    <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter Title" value="<%= form.title %>">
     <small id="titleHelp" class="form-text text-muted">Enter a title for this form</small>
   </div>
+  <div class="form-group">
+      <label for="slug">Slug</label>
+      <input type="text" name="slug" class="form-control" id="slug" aria-describedby="slugHelp" value="<%= form.slug %>">
+      <small id="slugHelp" class="form-text text-muted">Enter a url slug for this form</small>
+    </div>
   <div class="form-group">
     <select name="enabled" class="form-control">
       <option value="1" selected>Enabled</option>

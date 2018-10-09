@@ -23,7 +23,6 @@
     <table id="list" class="table small">
       <thead>
         <tr>
-          <th>Sort</th>
           <th>Name</th>
           <th>Value</th>
           <th></th>
@@ -34,10 +33,9 @@
         <% var i; if (field.options) { %>
 
         <% for (i = 0; i < field.options.length; i++) { %>
-        <tr class="list_var">
-          <td><input type="text" name="sort_<%= i %>" value="<%= field.options[i]['sort'] %>" size="4"></td>
-          <td><input type="text" name="list-name_<%= i %>" value="<%= field.options[i]['name'] %>"></td>
-          <td><input type="text" name="list-value_<%= i %>" value="<%= field.options[i]['value'] %>"></td>
+        <tr id="sort_0" class="list_var">
+          <td><input id="list-name_<%= i %>" type="text" name="list-name_<%= i %>" value="<%= field.options[i]['name'] %>"></td>
+          <td><input id="list-value_<%= i %>"type="text" name="list-value_<%= i %>" value="<%= field.options[i]['value'] %>"></td>
           <td class="del-area"><button type="button" class="list_del btn btn-primary">Delete</button></td>
         </tr>
 
@@ -46,9 +44,8 @@
         <% } else { %>
         
         <tr class="list_var">
-          <td><input type="text" name="sort_0" size="4"></td>
-          <td><input type="text" name="list-name_0"></td>
-          <td><input type="text" name="list-value_0"></td>
+          <td><input id="list-name_0" type="text" name="list-name_0"></td>
+          <td><input id="list-value_0" type="text" name="list-value_0"></td>
           <td class="del-area"><button type="button" class="list_del btn btn-primary">Delete</button></td>
         </tr>
 
